@@ -265,7 +265,7 @@ signal1 = (torch.sin(2 * np.pi * 3 * t) +
 freqs, mag, phase = viz.plot_time_frequency_analysis(signal1, sample_rate=256, title="复合正弦信号频域分析")
 ```
 
-![](D:\24bo\扩散模型\torch-cfd-main\show1.svg)
+![](./figures/show1.svg)
 
 **子图分析**
 
@@ -346,7 +346,7 @@ freq_img, mag_2d, phase_2d = viz.plot_2d_frequency_analysis(test_image, title="2
 
 ```
 
-![](D:\24bo\扩散模型\torch-cfd-main\show2.svg)
+![](./figures/show2.svg)
 
 在分析2D 频谱图时，最重要的是理解它代表了原始图像的频率成分分解。由于零频已移到中心，所以中心点代表了低频（全局/平滑特征），周围是高频（细节/噪声）。分析时，应先从图像中心出发，因为中心点（或小区域）对应零频率（DC term），表示原始图像的平均亮度或整体偏移。中心可以看作频谱的“锚点”，携带了最多能量（通常是最亮点）。如果中心过亮，可能表示图像有强低频偏置（如均匀背景）；如果暗淡，则图像对比度高或有高频主导。接着，从中心向外扩展，检查径向分布，半径直接代表空间频率（spatial frequency）的幅度。低半径（20%）代表了低频区域，对应大尺度结构（如整体形状、渐变）。看是否有十字或斑点（表示方向性模式，如水平/垂直边缘）；中等半径代表了中频区域（50%）：对应纹理和中等细节；大半径代表了高频区域（100%）：对应边缘、噪声或细微纹理。通常能量低、随机分布。如果有亮斑，可能表示周期性噪声。
 
@@ -387,7 +387,7 @@ FrequencyVisualizer.plot_1d_slice_analysis = plot_1d_slice_analysis
 freq_axis_y, mag_1d_y = viz.plot_1d_slice_analysis(torch.tensor(freq_img), slice_type='vertical', title="y维度1D切片幅度谱")
 ```
 
-![](D:\24bo\扩散模型\torch-cfd-main\show3.svg)
+![](./figures/show3.svg)
 
 ## 5. 频域深度学习模型
 
